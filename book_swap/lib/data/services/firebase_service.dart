@@ -45,7 +45,7 @@ class FirebaseService {
   /// Enable Firestore offline persistence
   Future<void> enableOfflinePersistence() async {
     try {
-      await firestore.settings.persistenceEnabled;
+      firestore.settings.persistenceEnabled;
     } catch (e) {
       print('Offline persistence error: $e');
     }

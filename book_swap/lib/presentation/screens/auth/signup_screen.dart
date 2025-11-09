@@ -106,6 +106,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   'Sign up to start swapping books',
                   style: TextStyle(
                     fontSize: 16,
+                    // ignore: deprecated_member_use
                     color: Colors.white.withOpacity(0.9),
                   ),
                 ),
@@ -174,6 +175,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                     Text(
                       AppStrings.alreadyHaveAccount,
                       style: TextStyle(
+                        // ignore: deprecated_member_use
                         color: Colors.white.withOpacity(0.9),
                       ),
                     ),

@@ -97,6 +97,7 @@ class BookCard extends StatelessWidget {
                       vertical: 4,
                     ),
                     decoration: BoxDecoration(
+                      // ignore: deprecated_member_use
                       color: _getConditionColor(book.condition).withOpacity(0.1),
                       borderRadius: BorderRadius.circular(4),
                     ),
@@ -145,6 +146,7 @@ class BookCard extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
+                        // ignore: deprecated_member_use
                         color: AppColors.warning.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(4),
                       ),

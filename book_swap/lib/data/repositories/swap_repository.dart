@@ -31,7 +31,7 @@ class SwapRepository implements ISwapRepository {
 
       // Add sender swaps
       for (var doc in senderSnapshot.docs) {
-        final model = SwapModel.fromMap(doc.data() as Map<String, dynamic>, doc.id);
+        final model = SwapModel.fromMap(doc.data(), doc.id);
         allSwaps.add(Swap(
           id: model.id,
           bookId: model.bookId,
@@ -48,7 +48,7 @@ class SwapRepository implements ISwapRepository {
 
       // Add receiver swaps
       for (var doc in receiverSnapshot.docs) {
-        final model = SwapModel.fromMap(doc.data() as Map<String, dynamic>, doc.id);
+        final model = SwapModel.fromMap(doc.data(), doc.id);
         allSwaps.add(Swap(
           id: model.id,
           bookId: model.bookId,
@@ -142,7 +142,7 @@ class SwapRepository implements ISwapRepository {
         .snapshots()
         .map((snapshot) {
       return snapshot.docs.map((doc) {
-        final model = SwapModel.fromMap(doc.data() as Map<String, dynamic>, doc.id);
+        final model = SwapModel.fromMap(doc.data(), doc.id);
         return Swap(
           id: model.id,
           bookId: model.bookId,

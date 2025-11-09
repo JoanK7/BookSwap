@@ -54,7 +54,9 @@ class SettingsScreen extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   decoration: BoxDecoration(
                     color: currentUser?.emailVerified ?? false
+                        // ignore: deprecated_member_use
                         ? AppColors.success.withOpacity(0.2)
+                        // ignore: deprecated_member_use
                         : AppColors.warning.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -85,14 +87,14 @@ class SettingsScreen extends ConsumerWidget {
                 title: const Text(AppStrings.notificationReminders),
                 subtitle: const Text('Get notified about swap updates'),
                 value: settings.notificationReminders,
-                activeColor: AppColors.secondary,
+                activeThumbColor: AppColors.secondary,
                 onChanged: (_) => settingsNotifier.toggleNotificationReminders(),
               ),
               SwitchListTile(
                 title: const Text(AppStrings.emailUpdates),
                 subtitle: const Text('Receive updates via email'),
                 value: settings.emailUpdates,
-                activeColor: AppColors.secondary,
+                activeThumbColor: AppColors.secondary,
                 onChanged: (_) => settingsNotifier.toggleEmailUpdates(),
               ),
             ],

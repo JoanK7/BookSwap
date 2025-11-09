@@ -34,6 +34,7 @@ class _MainScreenState extends State<MainScreen> {
         type: BottomNavigationBarType.fixed,
         backgroundColor: AppColors.primary,
         selectedItemColor: AppColors.secondary,
+        // ignore: deprecated_member_use
         unselectedItemColor: Colors.white.withOpacity(0.6),
         selectedFontSize: 12,
         unselectedFontSize: 12,

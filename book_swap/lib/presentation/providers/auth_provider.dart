@@ -21,10 +21,12 @@ final authStateProvider = StreamProvider<User?>((ref) {
   return authRepository.authStateChanges;
 });
 
-/// Provider for current user
+/// Provider for current user — derived from the auth state stream so it updates
+/// automatically when the Firebase auth user changes.
 final currentUserProvider = Provider<User?>((ref) {
-  final authRepository = ref.watch(authRepositoryProvider);
-  return authRepository.currentUser;
+  final authState = ref.watch(authStateProvider);
+  // authState is AsyncValue<User?>; when data is available return it, else null
+  return authState.asData?.value;
 });
 
 /// State notifier for auth operations (sign in, sign up, etc.)

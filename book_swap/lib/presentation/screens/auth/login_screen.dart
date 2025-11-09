@@ -100,6 +100,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   AppStrings.appTagline,
                   style: TextStyle(
                     fontSize: 18,
+                    // ignore: deprecated_member_use
                     color: Colors.white.withOpacity(0.9),
                     height: 1.5,
                   ),
@@ -156,6 +157,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     Text(
                       AppStrings.dontHaveAccount,
                       style: TextStyle(
+                        // ignore: deprecated_member_use
                         color: Colors.white.withOpacity(0.9),
                       ),
                     ),

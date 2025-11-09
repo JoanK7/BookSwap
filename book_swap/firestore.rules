@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Users: readable by authenticated users, writable only by the user
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update, delete: if isOwner(userId);
+    }
+
+    // Books: allow anyone to read (if you prefer auth-only reads, change to isAuthenticated())
+    // Create must set ownerId to the creating user's uid; update/delete only owner
+    match /books/{bookId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && request.resource.data.ownerId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && request.auth.uid == resource.data.ownerId;
+    }
+
+    // Swaps: allow swap participants to read / write
+    match /swaps/{swapId} {
+      // read only for participants (data already exists in resource)
+      allow read: if isAuthenticated() && (request.auth.uid == resource.data.requesterId || request.auth.uid == resource.data.ownerId);
+      // create must come from requester and set requesterId correctly
+      allow create: if isAuthenticated() && request.resource.data.requesterId == request.auth.uid && request.resource.data.ownerId is string;
+      // update/delete allowed to either participant
+      allow update, delete: if isAuthenticated() && (request.auth.uid == resource.data.requesterId || request.auth.uid == resource.data.ownerId);
+    }
+
+    // Chats & Messages: TEMPORARY RELAXED RULES FOR TESTING
+    // NOTE: These relaxations allow any authenticated user to read/write
+    // chats and messages. They are intended for short-term local/manual testing
+    // of messaging flows. Revert to stricter rules before production.
+
+    // Chats: allow any authenticated user to read/write while testing
+    match /chats/{chatId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // Messages: allow any authenticated user to read/create while testing
+    match /messages/{messageId} {
+      // For testing: allow read and create for authenticated users
+      allow read, create: if isAuthenticated();
+      // For safety, still disallow client deletes
+      allow delete: if false;
+    }
+
+    // Deny all other access explicitly
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

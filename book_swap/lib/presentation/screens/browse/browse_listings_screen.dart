@@ -5,7 +5,6 @@ import '../../../core/constants/app_strings.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/book_provider.dart';
 import '../../providers/swap_provider.dart';
-import '../../providers/book_provider.dart';
 import '../../widgets/book_card.dart';
 
 /// Browse listings screen showing all available books

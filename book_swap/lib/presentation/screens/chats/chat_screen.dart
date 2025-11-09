@@ -205,6 +205,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
+                  // ignore: deprecated_member_use
                   color: Colors.black.withOpacity(0.05),
                   blurRadius: 10,
                   offset: const Offset(0, -5),
@@ -281,6 +282,7 @@ class _DateSeparator extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
+        // ignore: deprecated_member_use
         color: AppColors.textLight.withOpacity(0.1),
         borderRadius: BorderRadius.circular(12),
       ),

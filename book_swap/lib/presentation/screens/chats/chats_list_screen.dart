@@ -89,6 +89,7 @@ class ChatsListScreen extends ConsumerWidget {
                 trailing: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
+                    // ignore: deprecated_member_use
                     color: _getStatusColor(swap.status).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -123,7 +124,7 @@ class ChatsListScreen extends ConsumerWidget {
           // Try to extract a Firestore index-create URL from the error text
           final urlMatch = RegExp(r'https?:\/\/[^\s)]+indexes\?create_composite=[^\s)]+')
               .firstMatch(errText);
-          final indexUrl = urlMatch != null ? urlMatch.group(0)! : null;
+          final indexUrl = urlMatch?.group(0)!;
 
           return Center(
             child: Column(
