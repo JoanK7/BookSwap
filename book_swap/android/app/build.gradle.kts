@@ -10,8 +10,9 @@ plugins {
 
 android {
     namespace = "com.example.book_swap"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 36
     ndkVersion = flutter.ndkVersion
+    
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -27,10 +28,11 @@ android {
         applicationId = "com.example.book_swap"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+    minSdk = flutter.minSdkVersion
+    targetSdk = 36
+        multiDexEnabled = true
+        versionCode = 1
+        versionName = "1.0.0"
     }
 
     buildTypes {
