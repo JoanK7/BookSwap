@@ -30,9 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  connectivity_plus: ^5.0.1
 
   #state management  
-  provider: ^6.1.1
+  flutter_riverpod: ^2.4.9
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -43,12 +44,12 @@ dependencies:
 
   #Firebase
   firebase_core: ^4.2.1
-  firebase_auth: ^4.2.5
+  firebase_auth: ^6.1.2
   cloud_firestore: ^6.1.0
-  firebase_storage: ^13.0.4
 
   #Image Picker
   image_picker: ^1.0.7
+  cached_network_image: ^3.2.4
 
   #Utilities
   intl: ^0.20.2
@@ -57,7 +58,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: ^0.14.4
 
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -65,7 +66,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
